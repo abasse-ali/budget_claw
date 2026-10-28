@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon budget</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f4f3ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Budget">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="kit/app-kit.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-bar">
+    <button class="icon-btn" type="button" data-month-step="-1" aria-label="Mois précédent"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chevron-left" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+    <h1 class="app-bar__title" data-month-label>Octobre 2026</h1>
+    <button class="icon-btn" type="button" data-month-step="1" aria-label="Mois suivant"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chevron-right" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="app-bar__spacer"></span>
+    <a class="icon-btn" href="#reglages" aria-label="Réglages"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-settings" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></a>
+  </header>
+
+  <main>
+    <section class="app-screen" id="accueil" data-screen aria-label="Accueil">
+      <div class="hero">
+        <p class="hero__label">Disponible à dépenser</p>
+        <p class="hero__amount" data-show="left">0,00 €</p>
+        <p class="hero__sub">Jusqu'à <b data-show="best">0,00 €</b> dans le meilleur des cas</p>
+        <div class="hero__pills">
+          <div class="hero__pill"><span>Par jour</span><b data-show="per-day">0,00 €</b><small data-show="days-left">jours restants</small></div>
+          <div class="hero__pill"><span>Dépensé</span><b data-entries-sum="spending">0,00 €</b><small>hors charges fixes</small></div>
+        </div>
+        <div class="hero__bar" role="progressbar" aria-label="Budget du mois déjà dépensé" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i data-show="used-bar"></i></div>
+        <div class="hero__legend"><span data-show="used">0 % du budget dépensé</span><span data-show="budget">0,00 €</span></div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <p class="tile__label"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-wallet" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>Rentrées sûres</p>
+          <p class="tile__value" data-show="sure">0,00 €</p>
+          <p class="tile__note" data-show="unsure">non assurées : 0,00 €</p>
+        </div>
+        <div class="tile">
+          <p class="tile__label"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-receipt" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>Charges fixes</p>
+          <p class="tile__value" data-show="fixed">0,00 €</p>
+          <p class="tile__note" data-show="fixed-count">0 charges</p>
+        </div>
+      </div>
+
+      <section class="card" aria-labelledby="recentes-titre">
+        <div class="card__head">
+          <h2 id="recentes-titre">Dernières opérations</h2>
+          <a class="card__link" href="#operations">Tout voir</a>
+        </div>
+        <ul class="list" data-entries-list data-limit="4"></ul>
+        <div class="empty" data-entries-empty hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-receipt" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+          <p>Aucune opération ce mois-ci.</p>
+          <button class="btn btn--primary btn--small" type="button" data-dialog-open="operation">Ajouter une opération</button>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="rentrees-titre">
+        <div class="card__head">
+          <h2 id="rentrees-titre">Rentrées du mois</h2>
+          <span class="card__meta" data-show="incomes-count"></span>
+        </div>
+        <ul class="list" data-plan="incomes"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="charges-titre">
+        <div class="card__head">
+          <h2 id="charges-titre">Charges fixes</h2>
+          <span class="card__meta" data-show="charges-count"></span>
+        </div>
+        <ul class="list" data-plan="charges"></ul>
+      </section>
+    </section>
+
+    <section class="app-screen" id="operations" data-screen aria-labelledby="operations-titre" hidden>
+      <h2 class="app-screen__title" id="operations-titre">Opérations</h2>
+      <div class="tiles">
+        <div class="tile"><p class="tile__label">Dépenses</p><p class="tile__value" data-entries-sum="spending">0,00 €</p><p class="tile__note">ce mois-ci</p></div>
+        <div class="tile"><p class="tile__label">Rentrées en plus</p><p class="tile__value" data-entries-sum="income">0,00 €</p><p class="tile__note">hors rentrées prévues</p></div>
+      </div>
+      <section class="card" aria-label="Opérations du mois">
+        <ul class="list" data-entries-list></ul>
+        <div class="empty" data-entries-empty hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-receipt" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+          <p>Aucune opération ce mois-ci.</p>
+          <button class="btn btn--primary btn--small" type="button" data-dialog-open="operation">Ajouter une opération</button>
+        </div>
+      </section>
+      <div class="btn-row">
+        <button class="btn btn--small" type="button" data-entries-export><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-download" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Copie</button>
+        <button class="btn btn--small" type="button" data-entries-import><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-upload" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>Reprendre</button>
+      </div>
+      <input type="file" accept=".csv,text/csv" data-entries-file aria-label="Copie à reprendre" hidden>
+    </section>
+
+    <section class="app-screen" id="bilan" data-screen aria-labelledby="bilan-titre" hidden>
+      <h2 class="app-screen__title" id="bilan-titre">Bilan</h2>
+      <section class="card" aria-labelledby="reste-titre">
+        <div class="card__head"><h3 id="reste-titre">Reste du mois</h3><span class="card__meta">après charges fixes</span></div>
+        <div class="meters" data-show="scenarios"></div>
+      </section>
+      <section class="card chart" data-chart="budget" aria-labelledby="graphique-titre">
+        <div class="card__head"><h3 id="graphique-titre">Rentrées et dépenses</h3><span class="card__meta">6 derniers mois</span></div>
+        <div class="chart__plot" data-chart-plot></div>
+        <p class="chart__legend"><span class="chart__key chart__key--in">Rentrées</span><span class="chart__key chart__key--out">Dépenses</span></p>
+        <p class="chart__empty" data-chart-empty hidden>Le graphique se remplit au fil des mois.</p>
+      </section>
+      <div class="tiles">
+        <div class="tile"><p class="tile__label">Par mois</p><p class="tile__value" data-show="habit">0,00 €</p><p class="tile__note">reste habituel</p></div>
+        <div class="tile"><p class="tile__label">Sur un an</p><p class="tile__value" data-show="year">0,00 €</p><p class="tile__note">au même rythme</p></div>
+      </div>
+    </section>
+
+    <section class="app-screen" id="reglages" data-screen aria-labelledby="reglages-titre" hidden>
+      <h2 class="app-screen__title" id="reglages-titre">Réglages</h2>
+      <section class="card" aria-labelledby="mes-rentrees">
+        <div class="card__head"><h3 id="mes-rentrees">Mes rentrées chaque mois</h3></div>
+        <div class="settings" data-settings="incomes"></div>
+      </section>
+      <section class="card" aria-labelledby="mes-charges">
+        <div class="card__head"><h3 id="mes-charges">Mes charges fixes</h3></div>
+        <div class="settings" data-settings="charges"></div>
+      </section>
+      <section class="card" aria-labelledby="donnees-titre">
+        <div class="card__head"><h3 id="donnees-titre">Mes données</h3></div>
+        <p>Elles restent sur ce téléphone. Gardez-en une copie de temps en temps.</p>
+        <div class="btn-row" style="margin-top: 12px">
+          <button class="btn btn--small" type="button" data-entries-export><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-download" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Copie</button>
+          <button class="btn btn--small btn--danger" type="button" data-dialog-open="effacer"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-trash-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>Tout effacer</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="tabbar" data-app-tabs aria-label="Écrans de l'appli">
+    <a class="tabbar__tab" href="#accueil" aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-house" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Accueil</span></a>
+    <a class="tabbar__tab" href="#operations"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-list" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M3 6h.01"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M8 6h13"/></svg><span>Opérations</span></a>
+    <button class="tabbar__add" type="button" data-dialog-open="operation" aria-label="Ajouter une opération"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+    <a class="tabbar__tab" href="#bilan"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chart-column" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span>Bilan</span></a>
+    <a class="tabbar__tab" href="#reglages"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-settings" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>Réglages</span></a>
+  </nav>
+</div>
+
+<dialog class="sheet" id="operation" aria-labelledby="operation-titre">
+  <form class="sheet__body" data-entry-form novalidate>
+    <div class="sheet__grip" aria-hidden="true"></div>
+    <div class="sheet__head">
+      <h2 class="sheet__title" id="operation-titre" data-entry-title>Nouvelle opération</h2>
+      <button class="icon-btn" type="button" data-dialog-close aria-label="Fermer"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <fieldset class="seg seg--choice">
+      <legend class="visually-hidden">Genre</legend>
+      <label><input type="radio" name="kind" value="out" checked><span>Dépense</span></label>
+      <label><input type="radio" name="kind" value="in"><span>Rentrée</span></label>
+    </fieldset>
+    <label class="visually-hidden" for="operation-montant">Montant en euros</label>
+    <div class="sheet__amount">
+      <input id="operation-montant" name="amount" inputmode="decimal" autocomplete="off" placeholder="0">
+      <span aria-hidden="true">€</span>
+    </div>
+    <p class="sheet__error">Un montant comme 12,50.</p>
+    <div class="sheet__quick">
+      <button type="button" data-quick="5">+5 €</button>
+      <button type="button" data-quick="10">+10 €</button>
+      <button type="button" data-quick="20">+20 €</button>
+      <button type="button" data-quick="50">+50 €</button>
+    </div>
+    <fieldset class="sheet__cats">
+      <legend>Catégorie</legend>
+      <label class="sheet__cat"><input type="radio" name="category" value="Courses" checked><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-shopping-cart" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><b>Courses</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Sorties"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-utensils" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg><b>Sorties</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Transport"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-bus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg><b>Transport</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Shopping"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-shopping-bag" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><b>Shopping</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Santé"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-heart-pulse" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg><b>Santé</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Loisirs"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-gamepad-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg><b>Loisirs</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Cadeaux"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-gift" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg><b>Cadeaux</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Autre"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tag" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><b>Autre</b></span></label>
+    </fieldset>
+    <div class="field-row">
+      <div class="field">
+        <label for="operation-libelle">Libellé</label>
+        <input id="operation-libelle" name="label" autocomplete="off" placeholder="Boulangerie">
+      </div>
+      <div class="field">
+        <label for="operation-date">Date</label>
+        <input id="operation-date" name="date" type="date">
+      </div>
+    </div>
+    <button class="btn btn--primary btn--block" type="submit">Ajouter</button>
+    <button class="btn btn--danger btn--block" type="button" data-entry-delete hidden>Supprimer l'opération</button>
+  </form>
+</dialog>
+
+<dialog class="modal" id="effacer" aria-labelledby="effacer-titre">
+  <div class="modal__body">
+    <div class="modal__head"><h2 class="modal__title" id="effacer-titre">Tout effacer ?</h2></div>
+    <p>Les opérations de tous les mois seront effacées de ce téléphone.</p>
+    <div class="btn-row">
+      <button class="btn" type="button" data-dialog-close>Garder</button>
+      <button class="btn btn--danger" type="button" data-entries-clear data-dialog-close>Effacer</button>
+    </div>
+  </div>
+</dialog>
+
+<script type="application/json" data-entries-seed="budget">[]</script>
+<script src="kit/app-kit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

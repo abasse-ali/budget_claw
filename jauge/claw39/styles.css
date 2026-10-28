@@ -1,0 +1,1417 @@
+/* Hero : le label est un peu plus discret */
+.hero__label {
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Hero subtitle : le "Potentiel maximal" en gras */
+.hero__sub {
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+/* Hero stats : single line under hero amount */
+.hero__stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.hero__stat span {
+  font-size: 0.875rem;
+  opacity: 0.55;
+  font-weight: 400;
+  color: inherit;
+}
+
+.hero__stat b {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero__stat small {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+/* Left-align hero content on all screens */
+.hero {
+  text-align: left !important;
+}
+
+.hero__label,
+.hero__amount,
+.hero__sub {
+  text-align: left !important;
+}
+
+/* Hero legend as secondary line */
+.hero__legend {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.75rem;
+  opacity: 0.7;
+  justify-content: flex-start !important;
+  gap: 16px;
+}
+
+.hero__legend span {
+  white-space: nowrap;
+}
+
+/* Pills du hero : légère adaptation */
+.hero__pills {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hero__pill {
+  font-size: 0.85rem;
+}
+
+.hero__pill small {
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
+
+/* Bar de progression du hero */
+.hero__bar {
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 12px;
+}
+
+.hero__bar i {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Legend du hero */
+.hero__legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* Tiles : empiler verticalement sur mobile, valeur plus lisible */
+@media (max-width: 599px) {
+  .tiles {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .tile {
+    width: 100% !important;
+  }
+}
+
+.tile__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.tile__note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Row : montant à droite bien visible */
+.row__end {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row__amount {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Card pour les listes de plan (charges, revenus) */
+.card[data-plan] .list {
+  padding: 0;
+}
+
+/* Settings : deux colonnes sur grand écran */
+@media (min-width: 520px) {
+  .settings[data-settings="incomes"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* Meter : note plus petite */
+.meter__note {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+/* Chart : légende un peu plus d'espace */
+.chart__legend {
+  margin-top: 8px;
+  gap: 16px;
+}
+
+/* Sheet : catégories en liste 1 colonne */
+.sheet__cats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sheet__cat {
+  display: flex;
+}
+
+.sheet__cat span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text) !important;
+}
+
+.sheet__cat input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sheet__cat input:checked + span::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity: 1;
+}
+
+.sheet__cat input:checked + span {
+  background: #047857 !important;
+  border-color: #047857 !important;
+  color: white !important;
+}
+
+.sheet__cat input:checked + span b,
+.sheet__cat input:checked + span .icon {
+  color: white !important;
+}
+
+.sheet__cat span b {
+  font-weight: 600;
+  font-size: 0.95rem;
+  pointer-events: none;
+  color: inherit !important;
+}
+
+.sheet__cat span::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity: 0.5;
+}
+
+/* Sheet amount input : grand et centré */
+.sheet__amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.sheet__amount input {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  max-width: 180px;
+  border: none;
+  border-bottom: 2px solid var(--line);
+  border-radius: 0;
+  padding: 8px 0;
+}
+
+.sheet__amount input:focus {
+  border-bottom-color: var(--accent);
+}
+
+.sheet__amount span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Quick amounts */
+.sheet__quick {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sheet__quick button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Delete button in edit sheet : meilleur contraste */
+.sheet__body .btn--danger {
+  background: var(--error);
+  color: white;
+}
+
+.sheet__body .btn--danger:hover {
+  filter: brightness(1.1);
+}
+
+/* Field row */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Error message in sheet */
+.sheet__error {
+  color: var(--error);
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 8px 0 16px;
+  min-height: 1.2em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sheet__error:not(:empty) {
+  opacity: 1;
+}
+
+/* Empty state centré */
+.empty {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.empty .icon {
+  margin-bottom: 12px;
+  opacity: 0.5;
+  color: var(--muted) !important;
+}
+
+.empty p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* App screen title */
+.app-screen__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  padding: 0 16px;
+}
+
+/* Screen with chart */
+.app-screen .chart {
+  margin: 16px;
+}
+
+/* Dialog form submit button */
+.sheet__body .btn--block {
+  margin-top: 8px;
+}
+
+/* Undo toast specific style handled by kit */
+
+/* S'assurer que le contenu ne déborde pas sous la tabbar */
+main {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Barre d'onglets flottante - centrer le bouton + avec 2 onglets de chaque côté */
+.tabbar {
+  position: fixed !important;
+  bottom: calc(env(safe-area-inset-bottom) + 12px) !important;
+  left: 50% !important;
+  right: auto !important;
+  z-index: 40 !important;
+  margin: 0 !important;
+  padding: 0 6px !important;
+  transform: translateX(-50%) !important;
+  width: min(100% - 24px, 536px) !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 68px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 24px !important;
+  background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
+  -webkit-backdrop-filter: saturate(1.6) blur(18px) !important;
+  backdrop-filter: saturate(1.6) blur(18px) !important;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.14) !important;
+}
+
+.tabbar__group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.tabbar__group--left {
+  margin-right: 16px !important;
+}
+
+.tabbar__group--right {
+  margin-left: 16px !important;
+}
+
+.tabbar__add {
+  flex: none !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  transition: opacity 200ms, filter 200ms, transform 150ms !important;
+}
+
+@media (hover: hover) {
+  .tabbar__add:hover {
+    opacity: 0.85 !important;
+    filter: brightness(1.1) !important;
+  }
+}
+
+.tabbar__add:active {
+  transform: scale(0.96) !important;
+}
+
+.tabbar__add:focus-visible {
+  outline: 2px solid #0e9f7a !important;
+  outline-offset: 2px !important;
+}
+
+/* Tabbar tabs */
+.tabbar__tab {
+  display: grid !important;
+  flex: none !important;
+  justify-items: center !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+  padding: 8px 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--faint) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: opacity 200ms, color 200ms, transform 150ms, background-color 200ms !important;
+  border-radius: 12px !important;
+}
+
+.tabbar__tab .icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.tabbar__tab > span {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
+@media (hover: hover) {
+  .tabbar__tab:hover {
+    opacity: 0.85 !important;
+    color: var(--muted) !important;
+    background: var(--surface-2) !important;
+  }
+}
+
+.tabbar__tab:active {
+  transform: scale(0.96) !important;
+}
+
+.tabbar__tab:focus-visible {
+  outline: 2px solid #0e9f7a !important;
+  outline-offset: 2px !important;
+}
+
+.tabbar__tab[aria-current="page"] {
+  color: var(--accent-ink) !important;
+}
+@media (max-width: 420px) {
+  .seg.seg--choice {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  
+  .seg.seg--choice label {
+    width: 100% !important;
+  }
+  
+  .seg.seg--choice label span {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* Settings card - empêcher le débordement */
+.settings {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.setting {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Seg général responsive */
+.seg {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card fix */
+.card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+/* Month nav buttons - plain icon buttons without background */
+.icon-btn--plain {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.icon-btn--plain:hover {
+  background: var(--surface-2) !important;
+}
+
+.icon-btn--plain:active {
+  transform: scale(0.95) !important;
+}
+
+/* Focus visible pour tous les éléments interactifs */
+*:focus-visible {
+  outline: 2px solid #0e7a5d !important;
+  outline-offset: 2px !important;
+}
+
+/* États hover/active pour les éléments interactifs */
+@media (hover: hover) {
+  .tabbar__tab:hover,
+  .icon-btn:hover,
+  .btn:hover,
+  .sheet__cat span:hover,
+  .seg span:hover,
+  .setting__name:hover,
+  .tile:hover,
+  .card:hover {
+    background-color: #f0fdf4 !important;
+    opacity: 0.75;
+  }
+  
+  .tabbar__tab:active,
+  .icon-btn:active,
+  .btn:active,
+  .sheet__cat span:active,
+  .seg span:active {
+    transform: scale(0.98);
+  }
+  
+  .tabbar__add:hover {
+    filter: brightness(1.1) !important;
+    opacity: 0.75 !important;
+  }
+  
+  .tabbar__add:active {
+    transform: scale(0.94) !important;
+  }
+}
+
+/* Focus-visible avec opacity pour tous les éléments tabbar */
+@media (hover: hover) {
+  .tabbar__tab:focus-visible,
+  .tabbar__add:focus-visible,
+  .icon-btn:focus-visible,
+  .btn:focus-visible,
+  .sheet__cat input:focus-visible + span,
+  .seg input:focus-visible + span {
+    outline: 2px solid #0e7a5d !important;
+    outline-offset: 2px !important;
+    opacity: 0.75;
+  }
+}
+
+/* Transition plus douce (200ms) pour tabbar */
+.tabbar__tab,
+.tabbar__add {
+  transition: opacity 200ms, background-color 200ms, color 200ms, transform 150ms !important;
+}
+
+/* Settings : styler les choix non sélectionnés comme des lignes de liste */
+.settings .seg--choice {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-top: 8px;
+}
+
+.settings .seg--choice > label {
+  flex: none;
+  width: 100%;
+}
+
+.settings .seg--choice > label:not(:last-child) span {
+  border-bottom: 1px solid var(--line);
+}
+
+.settings .seg--choice span {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 14px 16px !important;
+  min-height: 56px !important;
+  border-radius: 0 !important;
+  background: #f2faf8 !important;
+  border: 1px solid #0e7a66 !important;
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  font-size: 0.9375rem !important;
+  transition: background-color 0.15s, color 0.15s !important;
+}
+
+.settings .seg--choice input:checked + span {
+  background: var(--accent-soft) !important;
+  color: var(--accent-ink) !important;
+  border-color: var(--accent) !important;
+}
+
+.settings .seg--choice input:not(:checked) + span:hover {
+  background: var(--surface-2) !important;
+  color: var(--ink) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .settings .seg--choice {
+    border-color: var(--line);
+  }
+  .settings .seg--choice > label:not(:last-child) span {
+    border-bottom-color: var(--line);
+  }
+  .settings .seg--choice span {
+    color: #e5e7eb !important;
+    background: #1f2937 !important;
+    border: 1px solid #0e7a66 !important;
+  }
+  .settings .seg--choice input:checked + span {
+    background: var(--accent-soft) !important;
+    color: var(--accent-ink) !important;
+    border-color: var(--accent) !important;
+  }
+  .settings .seg--choice input:not(:checked) + span:hover {
+    background: var(--surface-2) !important;
+    color: var(--ink) !important;
+  }
+}
+
+/* Empty state compact pour Opérations récentes */
+.empty--compact {
+  min-height: 60px !important;
+  padding: 12px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+.empty--compact .icon {
+  width: 24px !important;
+  height: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.empty--compact p {
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+  color: var(--muted) !important;
+}
+
+/* Montants : chiffres tabulaires */
+.row__amount,
+.tile__value,
+.hero__amount,
+.hero__pill b,
+.hero__stat b,
+.meter__value,
+[data-entries-sum],
+.hero__amount,
+.tile__value,
+.total-fixed,
+.max-margin,
+.sure,
+.fixed,
+.unsure,
+.charges-count,
+.incomes-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Badge neutre pour "pas sûr" / incertain - gris au lieu d'orange (contraste 4.5:1+) */
+.badge--neutral,
+.badge--unsure {
+  background: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge--neutral,
+  .badge--unsure {
+    background: #374151 !important;
+    color: #e5e7eb !important;
+  }
+}
+
+/* Montants positifs (verts) - mode clair */
+@media (prefers-color-scheme: light) {
+  .row__amount--in,
+  .hero__pill b[data-entries-sum="income"],
+  .tile__value[data-show="sure"],
+  .tile__value[data-show="incomes-count"] {
+    color: #0e7a5d !important;
+  }
+
+  .row__amount:not(.row__amount--in),
+  .tile__value[data-show="fixed"],
+  .tile__value[data-show="fixed-count"],
+  .tile__value[data-show="charges-count"] {
+    color: #dc2626 !important;
+  }
+}
+
+/* Montants positifs (verts) - mode sombre : verts plus clairs pour contraste */
+@media (prefers-color-scheme: dark) {
+  .row__amount--in,
+  .hero__pill b[data-entries-sum="income"],
+  .tile__value[data-show="sure"],
+  .tile__value[data-show="incomes-count"] {
+    color: #4ade80 !important;
+  }
+
+  /* Montants négatifs (rouges) - mode sombre : rouges plus clairs pour contraste 4.5:1 */
+  .row__amount:not(.row__amount--in),
+  .tile__value[data-show="fixed"],
+  .tile__value[data-show="fixed-count"],
+  .tile__value[data-show="charges-count"] {
+    color: #f87171 !important;
+  }
+}
+
+/* Permettre au label "Gain non assuré" de passer sur deux lignes */
+.seg.seg--choice label span {
+  white-space: normal;
+  line-height: 1.3;
+  padding: 10px 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--text) !important;
+}
+
+/* Contrast pour les labels dans seg (choix thème, mode prudent, genre dans sheet) */
+@media (prefers-color-scheme: light) {
+  .seg.seg--choice label span {
+    color: #1a1a1a !important;
+  }
+  .seg label span,
+  .seg span {
+    color: #1a1a1a !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .seg.seg--choice label span {
+    color: #f5f5f5 !important;
+  }
+  .seg label span,
+  .seg span {
+    color: #f5f5f5 !important;
+  }
+}
+
+/* Sheet catégories - contraste pour les labels */
+@media (prefers-color-scheme: light) {
+  .sheet__cat span,
+  .sheet__cat span b,
+  .sheet__cat label span,
+  .sheet__cat label span b {
+    color: #1a1a1a !important;
+  }
+  .sheet__cat input:checked + span,
+  .sheet__cat input:checked + span b {
+    color: white !important;
+  }
+  .sheet__cat span::after {
+    filter: none;
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sheet__cat span,
+  .sheet__cat span b,
+  .sheet__cat label span,
+  .sheet__cat label span b {
+    color: #f5f5f5 !important;
+  }
+  .sheet__cat input:checked + span,
+  .sheet__cat input:checked + span b {
+    color: white !important;
+  }
+  .sheet__cat span::after {
+    filter: invert(1);
+    opacity: 0.7;
+  }
+  
+  /* Override checked category background for dark mode */
+  .sheet__cat input:checked + span {
+    background: #065f46 !important;
+    border-color: #065f46 !important;
+  }
+}
+
+/* Sheet genre (Dépense fixe / Revenu garanti / Gain non assuré) - contraste forcé */
+@media (prefers-color-scheme: light) {
+  .sheet .seg.seg--choice label span {
+    color: #0f172a !important;
+    background: #f3f4f6 !important;
+  }
+  .sheet .seg.seg--choice input:checked + span {
+    background: #047857 !important;
+    color: white !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sheet .seg.seg--choice label span {
+    color: #f5f5f5 !important;
+    background: #374151 !important;
+  }
+  .sheet .seg.seg--choice input:checked + span {
+    background: #065f46 !important;
+    color: white !important;
+  }
+}
+
+/* Settings seg (Thème, Mode prudent) - contraste forcé - texte plus foncé pour 4.5:1 */
+@media (prefers-color-scheme: light) {
+  .settings .seg.seg--choice label span {
+    color: #0f172a !important;
+    background: #f3f4f6 !important;
+  }
+  .settings .seg.seg--choice input:checked + span {
+    background: #047857 !important;
+    color: white !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .settings .seg.seg--choice label span {
+    color: #f5f5f5 !important;
+    background: #374151 !important;
+  }
+  .settings .seg.seg--choice input:checked + span {
+    background: #065f46 !important;
+    color: white !important;
+  }
+}
+
+/* Setting name - contraste */
+@media (prefers-color-scheme: light) {
+  .setting__name {
+    color: #0f172a !important;
+  }
+  .setting__name small {
+    color: #374151 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .setting__name {
+    color: #f5f5f5 !important;
+  }
+  .setting__name small {
+    color: #b8c5bc !important;
+  }
+}
+
+/* Tabbar text contrast */
+@media (prefers-color-scheme: light) {
+  .tabbar__tab:not([aria-current="page"]) {
+    color: #374151 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tabbar__tab:not([aria-current="page"]) {
+    color: #b8c5bc !important;
+  }
+}
+
+/* Sheet kind buttons (Dépense fixe / Revenu garanti / Gain non assuré) - ALWAYS column layout */
+.sheet .seg.seg--choice {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+}
+
+.sheet .seg.seg--choice label {
+  display: block !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: 0 !important;
+}
+
+.sheet .seg.seg--choice label span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  transition: all 0.15s !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  pointer-events: none !important;
+}
+
+/* Ensure checked state is visible on all screen sizes */
+.sheet .seg.seg--choice input:checked + span {
+  background: var(--accent) !important;
+  color: white !important;
+  border-color: var(--accent) !important;
+}
+
+/* Force column layout for kind selection in sheet - highest specificity */
+dialog.sheet .sheet__body .seg.seg--choice,
+.sheet .sheet__body .seg.seg--choice {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+dialog.sheet .sheet__body .seg.seg--choice label,
+.sheet .sheet__body .seg.seg--choice label {
+  display: block !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: 0 !important;
+  flex: none !important;
+}
+
+dialog.sheet .sheet__body .seg.seg--choice label span,
+.sheet .sheet__body .seg.seg--choice label span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  transition: all 0.15s !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  pointer-events: none !important;
+}
+
+/* Override kit's horizontal layout for seg--choice inside sheet on ALL screen sizes */
+.sheet .seg.seg--choice,
+.sheet__body .seg.seg--choice {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.sheet .seg.seg--choice label,
+.sheet__body .seg.seg--choice label {
+  display: block !important;
+  width: 100% !important;
+  flex: none !important;
+  min-width: 0 !important;
+}
+
+.sheet .seg.seg--choice label span,
+.sheet__body .seg.seg--choice label span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  transition: all 0.15s !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: #f3f4f6 !important;
+  border: 1px solid var(--line) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  pointer-events: none !important;
+  color: #0f172a !important;
+}
+
+.sheet .seg.seg--choice input:checked + span,
+.sheet__body .seg.seg--choice input:checked + span {
+  background: #047857 !important;
+  color: white !important;
+  border-color: #047857 !important;
+}
+
+/* Mode sombre - surcharge explicite */
+@media (prefers-color-scheme: dark) {
+  .sheet .seg.seg--choice label span,
+  .sheet__body .seg.seg--choice label span {
+    color: #f5f5f5 !important;
+    background: #374151 !important;
+  }
+  .sheet .seg.seg--choice input:checked + span,
+  .sheet__body .seg.seg--choice input:checked + span {
+    background: #065f46 !important;
+    color: white !important;
+    border-color: #065f46 !important;
+  }
+}
+
+/* État checked - spécificité maximale pour gagner sur les règles non-checked */
+dialog.sheet .sheet__body .seg.seg--choice input:checked + span,
+.sheet .sheet__body .seg.seg--choice input:checked + span {
+  background: #047857 !important;
+  color: white !important;
+  border-color: #047857 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  dialog.sheet .sheet__body .seg.seg--choice input:checked + span,
+  .sheet .sheet__body .seg.seg--choice input:checked + span {
+    background: #065f46 !important;
+    color: white !important;
+    border-color: #065f46 !important;
+  }
+}
+
+/* Corriger le letter-spacing du titre de la sheet (éviter mots collés) */
+.sheet__title,
+.modal__title {
+  letter-spacing: normal !important;
+}
+
+/* Fix Settings screen: prevent label truncation */
+.settings > .setting {
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+.settings .setting__name {
+  flex: 1 1 100% !important;
+  min-width: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.settings .seg.seg--choice {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  margin-top: 4px !important;
+}
+
+/* Graphique : barres - Rentrées vertes, Dépenses rouges */
+.chart__bar--in {
+  fill: #0e7a5d !important;
+}
+
+.chart__bar--out {
+  fill: #dc2626 !important;
+}
+
+/* Légende du graphique - Dépenses en rouge (pas vert) */
+.chart__key--out {
+  --tone: var(--error) !important;
+}
+
+/* Settings - liens d'actions (Export, Effacer) */
+.setting__desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.setting-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn--link {
+  background: transparent !important;
+  color: #0e7a5d !important;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font-weight: 500;
+  gap: 12px;
+}
+
+@media (hover: hover) {
+  .btn--link:hover {
+    background: #f0fdf4 !important;
+    opacity: 0.75;
+  }
+  
+  .btn--link:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (prefers-color-scheme: dark) and (hover: hover) {
+  .btn--link:hover {
+    background: #124a3a !important;
+    color: #4ade80 !important;
+    opacity: 0.75;
+  }
+}
+
+/* Tile notes - contraste */
+@media (prefers-color-scheme: light) {
+  .tile__note {
+    color: #3a3a3a !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tile__note {
+    color: #d8d8d8 !important;
+  }
+}
+
+/* Tabbar tabs - contraste pour le texte */
+@media (prefers-color-scheme: light) {
+  .tabbar__tab {
+    color: #1a1a1a !important;
+  }
+  .tabbar__tab[aria-current="page"] {
+    color: #0e7a5d !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tabbar__tab {
+    color: #e8e8e8 !important;
+  }
+  .tabbar__tab[aria-current="page"] {
+    color: #4ade80 !important;
+  }
+}
+
+/* Bouton "Tout effacer" en mode clair */
+.btn--danger.btn--small {
+  background: #c62828 !important;
+  color: white !important;
+}
+
+/* Bouton primaire dans la sheet (Ajouter) */
+.sheet .btn--primary,
+.sheet__body .btn--primary {
+  background: #1b5e20 !important;
+  color: white !important;
+}
+
+/* Bouton primaire petit (dans empty state) */
+.empty .btn--primary {
+  background: #1b5e20 !important;
+  color: white !important;
+}
+
+/* Badge "pas sûr" / "Non assuré" - fond orange plus foncé pour contraste 4.5:1, texte blanc */
+.row__title > .badge--warn,
+.row__title > .badge--warn *,
+.badge--warn span,
+.badge--warn {
+  background: #bf360c !important;
+  color: white !important;
+}
+
+.badge--warn .icon {
+  color: white !important;
+}
+
+/* Badge "variable" - fond vert foncé, texte blanc */
+.row__title > .badge--accent,
+.row__title > .badge--accent *,
+.badge--accent span {
+  background: #1b5e20 !important;
+  color: white !important;
+}
+
+/* Badges - taille minimale 12px pour lisibilité */
+.badge {
+  font-size: 12px !important;
+  padding: 3px 8px !important;
+}
+
+/* ============================================================
+   Résumé du mois (nouvelle section)
+   ============================================================ */
+.summary {
+  margin-top: 16px;
+}
+
+.summary__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.summary__label {
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.summary__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Ligne d'entrée (vert) */
+.summary__row--in .summary__value {
+  color: var(--in-color);
+}
+
+/* Ligne de sortie (rouge) */
+.summary__row--out .summary__value {
+  color: var(--out-color);
+}
+
+/* Ligne de total (accent) */
+.summary__row--total .summary__value {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Lignes alternatives (habituel, au mieux) - un peu plus discrètes */
+.summary__row--alt .summary__value {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Contraste forcé mode clair */
+@media (prefers-color-scheme: light) {
+  .summary__row--in .summary__value {
+    color: #0e7a5d !important;
+  }
+  .summary__row--out .summary__value {
+    color: #dc2626 !important;
+  }
+  .summary__row--total .summary__value {
+    color: #047857 !important;
+  }
+  .summary__label {
+    color: #1a1a1a !important;
+  }
+}
+
+/* Contraste forcé mode sombre */
+@media (prefers-color-scheme: dark) {
+  .summary__row--in .summary__value {
+    color: #4ade80 !important;
+  }
+  .summary__row--out .summary__value {
+    color: #f87171 !important;
+  }
+  .summary__row--total .summary__value {
+    color: #34d399 !important;
+  }
+  .summary__label {
+    color: #f5f5f5 !important;
+  }
+}
+
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Réduire l'animation pour ceux qui le préfèrent */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print : cacher tabbar et barres d'action */
+@media print {
+  .tabbar,
+  .app-bar,
+  .sheet,
+  .modal,
+  .btn-row,
+  .sheet__quick,
+  [data-dialog-open] {
+    display: none !important;
+  }
+  main {
+    padding-bottom: 0;
+  }
+}
+
+/* Contraste amélioré pour les textes secondaires en mode clair */
+@media (prefers-color-scheme: light) {
+  .tile__note,
+  .card__meta,
+  .row__sub,
+  .setting__name small,
+  .seg span,
+  .seg label span,
+  .tabbar__tab:not([aria-current="page"]),
+  .chart__empty {
+    color: #4a4a4a !important;
+  }
+
+  .tile__note {
+    color: #4a4a4a !important;
+  }
+
+  .card__meta {
+    color: #4a4a4a !important;
+  }
+
+  .row__sub {
+    color: #4a4a4a !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+}
+
+/* Contraste amélioré en mode sombre */
+@media (prefers-color-scheme: dark) {
+  .tabbar__tab:not([aria-current="page"]) {
+    color: #b8c5bc !important;
+  }
+
+  .btn--danger.btn--small {
+    background: #ef5350 !important;
+    color: white !important;
+  }
+
+  .seg span {
+    color: #e0e0e0 !important;
+  }
+
+  .seg label span {
+    color: #e0e0e0 !important;
+  }
+
+  .badge--warn {
+    background: #ffb74d !important;
+    color: #1a1a1a !important;
+  }
+}
+
+/* Analyse screen title: plain bold text without border/background */
+#analyse .app-screen__title,
+#reglages .app-screen__title {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 4px 4px 8px !important;
+  font: 800 1.75rem/1.15 var(--font-display) !important;
+  letter-spacing: -0.02em !important;
+}

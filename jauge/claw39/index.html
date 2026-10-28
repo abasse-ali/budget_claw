@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon budget</title>
+  <link rel="stylesheet" href="kit/app-kit.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#e8f5e9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Budget">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+<div class="app">
+  <header class="app-bar">
+    <div style="display: flex; align-items: center; gap: 4px;">
+      <button class="icon-btn icon-btn--plain" data-month-step="-1" aria-label="Mois précédent"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chevron-left" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <h1 class="app-bar__title" data-month-label style="text-align: left; min-width: 0; padding: 0; font: inherit;">Octobre 2026</h1>
+      <button class="icon-btn icon-btn--plain" data-month-step="1" aria-label="Mois suivant"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chevron-right" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+    <span class="app-bar__spacer"></span>
+    <a class="icon-btn" href="#reglages" aria-label="Réglages"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-settings" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></a>
+  </header>
+
+  <main>
+    <!-- TAB 1: APERÇU -->
+    <section class="app-screen" id="apercu" data-screen aria-label="Aperçu">
+      <div class="hero">
+        <p class="hero__label">Reste à vivre prudent</p>
+        <p class="hero__amount" data-show="left">0,00 €</p>
+        <p class="hero__sub">Potentiel maximal : <b data-show="best">0,00 €</b></p>
+        <div class="hero__stats">
+          <div class="hero__stat"><span>Par jour</span><b data-show="per-day">0,00 €</b><small data-show="days-left">jours restants</small></div>
+        </div>
+        <div class="hero__legend"><span data-show="spending-line">Dépenses du mois : 0,00 € hors charges fixes</span></div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <p class="tile__label"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-wallet" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>Entrées garanties</p>
+          <p class="tile__value" data-show="sure">0,00 €</p>
+          <p class="tile__note" data-show="unsure">non assurées : 0,00 €</p>
+        </div>
+        <div class="tile">
+          <p class="tile__label"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-receipt" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>Charges fixes</p>
+          <p class="tile__value" data-show="fixed">0,00 €</p>
+          <p class="tile__note" data-show="fixed-count">0 charges</p>
+        </div>
+      </div>
+
+      <section class="card" aria-labelledby="charges-titre">
+        <div class="card__head">
+          <h2 id="charges-titre">Dépenses incompressibles</h2>
+          <span class="card__meta" data-show="charges-count"></span>
+        </div>
+        <ul class="list" data-plan="charges"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="rentrees-titre">
+        <div class="card__head">
+          <h2 id="rentrees-titre">Revenus & Entrées</h2>
+          <span class="card__meta" data-show="incomes-count"></span>
+        </div>
+        <ul class="list" data-plan="incomes"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="operations-titre">
+        <div class="card__head">
+          <h2 id="operations-titre">Opérations récentes</h2>
+        </div>
+        <ul class="list" data-entries-list data-limit="3"></ul>
+        <div class="empty empty--compact" data-entries-empty hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-receipt" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+          <p>Aucune opération ce mois-ci.</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- TAB 2: ANALYSE -->
+    <section class="app-screen" id="analyse" data-screen aria-labelledby="analyse-titre" hidden>
+      <h2 class="app-screen__title" id="analyse-titre">Analyse</h2>
+
+      <section class="card chart" data-chart="budget" aria-labelledby="graphique-titre">
+        <div class="card__head"><h3 id="graphique-titre">Socle Prudent vs Potentiel Maximal</h3><span class="card__meta">Comparatif mensuel</span></div>
+        <div class="chart__plot" data-chart-plot></div>
+        <p class="chart__legend"><span class="chart__key chart__key--in">Rentrées</span><span class="chart__key chart__key--out">Dépenses</span></p>
+        <p class="chart__empty" data-chart-empty hidden>Le graphique se remplit au fil des mois.</p>
+      </section>
+
+      <div class="tiles">
+        <div class="tile"><p class="tile__label">Total Fixe</p><p class="tile__value" data-show="total-fixed">0,00 €</p><p class="tile__note">charges incompressibles</p></div>
+        <div class="tile"><p class="tile__label">Marge Maximale</p><p class="tile__value" data-show="max-margin">0,00 €</p><p class="tile__note">reste potentiel</p></div>
+      </div>
+
+      <section class="card" aria-labelledby="variables-titre">
+        <div class="card__head">
+          <h2 id="variables-titre">Gains non assurés & Variables</h2>
+        </div>
+        <ul class="list" data-plan="variables"></ul>
+      </section>
+    </section>
+
+    <!-- TAB 3: RÉGLAGES -->
+    <section class="app-screen" id="reglages" data-screen aria-labelledby="reglages-titre" hidden>
+      <h2 class="app-screen__title" id="reglages-titre">Réglages</h2>
+      <section class="card" aria-labelledby="theme-titre">
+        <div class="card__head"><h3 id="theme-titre">Affichage</h3></div>
+        <div class="settings" data-settings="display"></div>
+      </section>
+      <section class="card" aria-labelledby="calcul-titre">
+        <div class="card__head"><h3 id="calcul-titre">Mode de calcul prudent</h3></div>
+        <div class="settings" data-settings="calculation"></div>
+      </section>
+      <section class="card" aria-labelledby="donnees-titre">
+        <div class="card__head"><h3 id="donnees-titre">Mes données</h3></div>
+        <p class="setting__desc">Elles restent sur ce téléphone. Gardez-en une copie de temps en temps.</p>
+        <div class="setting-links">
+          <button class="btn btn--link" type="button" data-entries-export><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-download" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Exporter (JSON)</button>
+          <button class="btn btn--link" type="button" data-dialog-open="effacer"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-trash-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>Tout effacer</button>
+        </div>
+        <div class="empty" data-history-empty hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-archive" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+          <p>Aucun historique antérieur archivé pour le moment.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="tabbar" data-app-tabs aria-label="Écrans de l'appli">
+    <div class="tabbar__group tabbar__group--left">
+      <a class="tabbar__tab" href="#apercu" aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-house" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Aperçu</span></a>
+      <a class="tabbar__tab" href="#analyse"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chart-column" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span>Analyse</span></a>
+    </div>
+    <button class="tabbar__add" type="button" data-dialog-open="operation" aria-label="Ajouter une entrée"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+    <div class="tabbar__group tabbar__group--right">
+      <a class="tabbar__tab" href="#reglages"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-settings" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>Réglages</span></a>
+    </div>
+  </nav>
+</div>
+
+<dialog class="sheet" id="operation" aria-labelledby="operation-titre">
+  <form class="sheet__body" data-entry-form novalidate>
+    <div class="sheet__grip" aria-hidden="true"></div>
+    <div class="sheet__head">
+      <h2 class="sheet__title" id="operation-titre" data-entry-title>Nouvelle entrée</h2>
+      <button class="icon-btn" type="button" data-dialog-close aria-label="Fermer"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="seg seg--choice" role="radiogroup" aria-label="Genre">
+      <label><input type="radio" name="kind" value="out" checked><span>Dépense fixe</span></label>
+      <label><input type="radio" name="kind" value="in"><span>Revenu garanti</span></label>
+      <label><input type="radio" name="kind" value="in"><span>Gain non assuré</span></label>
+    </div>
+    <label class="visually-hidden" for="operation-montant">Montant en euros</label>
+    <div class="sheet__amount">
+      <input id="operation-montant" name="amount" inputmode="decimal" autocomplete="off" placeholder="0">
+      <span aria-hidden="true">€</span>
+    </div>
+    <p class="sheet__error">Un montant comme 12,50.</p>
+    <div class="sheet__quick">
+      <button type="button" data-quick="5">+5 €</button>
+      <button type="button" data-quick="10">+10 €</button>
+      <button type="button" data-quick="20">+20 €</button>
+      <button type="button" data-quick="50">+50 €</button>
+    </div>
+    <fieldset class="sheet__cats">
+      <legend>Catégorie</legend>
+      <label class="sheet__cat"><input type="radio" name="category" value="Logement" checked><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-home" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><b>Logement</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Télécom & Web"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-smartphone" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg><b>Télécom & Web</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Services IA"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-bot" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg><b>Services IA</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Transports"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-bus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg><b>Transports</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Alimentation"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-shopping-bag" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><b>Alimentation</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Salaire"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-briefcase" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg><b>Salaire</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="CAF & Aides"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-landmark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg><b>CAF & Aides</b></span></label>
+      <label class="sheet__cat"><input type="radio" name="category" value="Espèces & Divers"><span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-banknote" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg><b>Espèces & Divers</b></span></label>
+    </fieldset>
+    <div class="field-row">
+      <div class="field">
+        <label for="operation-libelle">Libellé</label>
+        <input id="operation-libelle" name="label" autocomplete="off" placeholder="Ex: Loyer">
+      </div>
+      <div class="field">
+        <label for="operation-date">Date</label>
+        <input id="operation-date" name="date" type="date">
+      </div>
+    </div>
+    <button class="btn btn--primary btn--block" type="submit">Ajouter</button>
+    <button class="btn btn--danger btn--block" type="button" data-entry-delete hidden>Supprimer l'entrée</button>
+  </form>
+</dialog>
+
+<dialog class="modal" id="effacer" aria-labelledby="effacer-titre">
+  <div class="modal__body">
+    <div class="modal__head"><h2 class="modal__title" id="effacer-titre">Tout effacer ?</h2></div>
+    <p>Les entrées de tous les mois seront effacées de ce téléphone.</p>
+    <div class="btn-row">
+      <button class="btn" type="button" data-dialog-close>Garder</button>
+      <button class="btn btn--danger" type="button" data-entries-clear data-dialog-close>Effacer</button>
+    </div>
+  </div>
+</dialog>
+
+<script type="application/json" data-entries-seed="budget">[]</script>
+<script src="kit/app-kit.js"></script>
+<script src="app.js"></script>
+<script>
+  // Service worker registration
+  (() => {
+    if (!("serviceWorker" in navigator) || !/^https?:$/.test(location.protocol)) return;
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => { /* l'appli marche sans */ });
+    });
+  })();
+</script>
+</body>
+</html>
